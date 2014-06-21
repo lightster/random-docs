@@ -30,25 +30,25 @@ Run system updates
 
 Add EPEL and Remi repos to yum
 
-    wget http://dl.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
-    wget http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
-    rpm -Uvh remi-release-6*.rpm epel-release-6*.rpm
+    root@linode$ wget http://dl.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
+    root@linode$ wget http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
+    root@linode$ rpm -Uvh remi-release-6*.rpm epel-release-6*.rpm
 
 ## We Love git
 
 Install the latest version of git
 
     # Dependencies
-    yum install gcc openssl-devel curl-devel expat-devel cpan gettext-devel
-    cpan -i ExtUtils::MakeMaker
+    root@linode$ yum install gcc openssl-devel curl-devel expat-devel cpan gettext-devel
+    root@linode$ cpan -i ExtUtils::MakeMaker
 
-    wget --output-document=git.tar.gz https://github.com/git/git/archive/v2.0.x.tar.gz
-    tar zxf git.tar.gz
-    cd git-2.0.0
+    root@linode$ wget --output-document=git.tar.gz https://github.com/git/git/archive/v2.0.x.tar.gz
+    root@linode$ tar zxf git.tar.gz
+    root@linode$ cd git-2.0.0
 
-    NO_TCLTK=1 make prefix=/usr/local all
-    make prefix=/usr/local install
-    git --version
+    root@linode$ NO_TCLTK=1 make prefix=/usr/local all
+    root@linode$ make prefix=/usr/local install
+    root@linode$ git --version
 
 ## Enable `sudo` for `wheel`
 
