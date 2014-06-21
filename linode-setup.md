@@ -4,6 +4,8 @@ Sign in to your Linode as root
 
     {{USERNAME}}@localhost$ ssh root@{{IP4_ADDR}}
 
+## Setup the Server Hostname
+
 Set the Linode hostname
 
     root@linode$ echo "HOSTNAME={{HOSTNAME}}" >> /etc/sysconfig/network
@@ -14,9 +16,13 @@ Add the IP / hosts to `/etc/hosts`
     root@linode$ {{IP4_ADDR}} {{HOSTNAME}}.r34d.me {{HOSTNAME}}
     root@linode$ {{IP6_ADDR}} {{HOSTNAME}}.r34d.me {{HOSTNAME}}
 
+## Set the Server Timezone to UTC
+
 Set the Linode's time zone. I like to use UTC since servers can be moved and accessed all over the world.
 
     root@linode$ ln -sf /usr/share/zoneinfo/UTC /etc/localtime
+
+## Get the Package Manager Setup
 
 Run system updates
 
@@ -27,6 +33,8 @@ Add EPEL and Remi repos to yum
     wget http://dl.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
     wget http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
     rpm -Uvh remi-release-6*.rpm epel-release-6*.rpm
+
+## We Love git
 
 Install the latest version of git
 
@@ -42,11 +50,15 @@ Install the latest version of git
     make prefix=/usr/local install
     git --version
 
+## Enable `sudo` for `wheel`
+
 Allow `wheel` group to use `sudo`
 
     root@linode$ vim /etc/sudoers
 
   - Find and uncomment `# %wheel        ALL=(ALL)       ALL`
+
+## Setup a User Account
 
 Add a user for yourself and give the user sudo access
 
@@ -63,17 +75,19 @@ Copy your SSH keys to your linode
     {{USERNAME}}@{{HOSTNAME}}$ ssh {{USERNAME}}@{{IP4_ADDR}}
     {{USERNAME}}@{{HOSTNAME}}$ .ssh/setup
 
-Disable root login
+## Disable root login
 
     {{USERNAME}}@{{HOSTNAME}}$ sudo vim /etc/ssh/sshd_config
 
   - Find
 
-    #PermitRootLogin yes
+        #PermitRootLogin yes
 
   - Replace with
 
-    PermitRootLogin no
+        PermitRootLogin no
+
+Restart `sshd` so the changes take affect
 
     {{USERNAME}}@{{HOSTNAME}}$ sudo service sshd restart
 
