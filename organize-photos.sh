@@ -1,16 +1,16 @@
 # requires exiftool
 
-find unprocessed -type f -print0 | xargs -0 -I {} exiftool -P \
+find Unprocessed -type f -print0 | xargs -0 -I {} exiftool -P \
     -d '%Y/%m/%Y%m%d_%H%M%S' \
-    '-filename<organized/${FileModifyDate}_${SubSecTimeOriginal;}%-c.%le' \
-    '-filename<organized/${GPSDateTime}_${SubSecTimeOriginal;}%-c.%le' \
-    '-filename<organized/${MediaCreateDate}_${SubSecTimeOriginal;}%-c.%le' \
-    '-filename<organized/${ModifyDate}_${SubSecTimeOriginal;}%-c.%le' \
-    '-filename<organized/${DateTimeOriginal}_${SubSecTimeOriginal;}%-c.%le' \
-    '-filename<organized/${FileModifyDate}_000%-c.%le' \
-    '-filename<organized/${GPSDateTime}_000%-c.%le' \
-    '-filename<organized/${MediaCreateDate}_000%-c.%le' \
-    '-filename<organized/${ModifyDate}_000%-c.%le' \
-    '-filename<organized/${DateTimeOriginal}_000%-c.%le' \
+    '-filename<Organized/${FileModifyDate}_${SubSecTimeOriginal;}%-c.%le' \
+    '-filename<Organized/${GPSDateTime}_${SubSecTimeOriginal;}%-c.%le' \
+    '-filename<Organized/${MediaCreateDate}_${SubSecTimeOriginal;}%-c.%le' \
+    '-filename<Organized/${ModifyDate}_${SubSecTimeOriginal;}%-c.%le' \
+    '-filename<Organized/${DateTimeOriginal}_${SubSecTimeOriginal;}%-c.%le' \
+    '-filename<Organized/${FileModifyDate}_000%-c.%le' \
+    '-filename<Organized/${GPSDateTime}_000%-c.%le' \
+    '-filename<Organized/${MediaCreateDate}_000%-c.%le' \
+    '-filename<Organized/${ModifyDate}_000%-c.%le' \
+    '-filename<Organized/${DateTimeOriginal}_000%-c.%le' \
     {}
 
