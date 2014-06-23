@@ -1,7 +1,7 @@
 # requires exiftool
 
 find unprocessed -type f -print0 | xargs -0 -I {} exiftool -P \
-    -d '%Y/%m/%d/%Y%m%d_%H%M%S' \
+    -d '%Y/%m/%Y%m%d_%H%M%S' \
     '-filename<organized/${FileModifyDate}_${SubSecTimeOriginal;}%-c.%le' \
     '-filename<organized/${GPSDateTime}_${SubSecTimeOriginal;}%-c.%le' \
     '-filename<organized/${MediaCreateDate}_${SubSecTimeOriginal;}%-c.%le' \
