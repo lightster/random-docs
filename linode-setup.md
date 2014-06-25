@@ -98,4 +98,4 @@ Restart `sshd` so the changes take affect
     # verify the rules
     {{USERNAME}}@{{HOSTNAME}}$ sudo iptables -L
     # save the rules so they persist after a reboot
-    {{USERNAME}}@{{HOSTNAME}}$ /sbin/service iptables save
+    {{USERNAME}}@{{HOSTNAME}}$ sudo service iptables save
