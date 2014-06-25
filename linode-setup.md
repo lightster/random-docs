@@ -91,3 +91,11 @@ Restart `sshd` so the changes take affect
 
     {{USERNAME}}@{{HOSTNAME}}$ sudo service sshd restart
 
+## Setup a Firewall
+
+    {{USERNAME}}@{{HOSTNAME}}$ sudo cp linode-setup-iptables.firewall.rules /etc/iptables.firewall.rules
+    {{USERNAME}}@{{HOSTNAME}}$ sudo iptables-restore < /etc/iptables.firewall.rules
+    # verify the rules
+    {{USERNAME}}@{{HOSTNAME}}$ sudo iptables -L
+    # save the rules so they persist after a reboot
+    {{USERNAME}}@{{HOSTNAME}}$ /sbin/service iptables save
